@@ -179,6 +179,7 @@ module.exports = {
         THIS IS ONLY A WARNING.
         LOGGER HAS ALREADY BEEN INITIALIZED.
         RETURNING LOGGER SINGLETON.
+        YOU CAN CREATE A NEW LOGGER WITH #createLogger
       `);
 
       return logger;
@@ -197,8 +198,7 @@ module.exports = {
       level: process.env.LOG_LEVEL || 'DEBUG'
     };
 
-    logger = new Logger(loggerOptions);
-    return logger;
+    return new Logger(loggerOptions);
   },
 
   getLogger: () => {
