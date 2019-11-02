@@ -1,0 +1,22 @@
+[2019-11-1 22:46:33] ->  
+        THIS IS ONLY A WARNING.
+        LOGGER HAS ALREADY BEEN INITIALIZED.
+        RETURNING LOGGER SINGLETON.
+        YOU CAN CREATE A NEW LOGGER WITH #createLogger
+      
+[2019-11-1 22:46:33] ->  debug
+[2019-11-1 22:46:33] ->  info
+[2019-11-1 22:46:33] ->  warning
+[2019-11-1 22:46:33] ->  error
+[2019-11-1 22:46:33] ->  emergency
+[2019-11-1 22:47:07] ->  
+        THIS IS ONLY A WARNING.
+        LOGGER HAS ALREADY BEEN INITIALIZED.
+        RETURNING LOGGER SINGLETON.
+        YOU CAN CREATE A NEW LOGGER WITH #createLogger
+      
+[2019-11-1 22:47:07] ->  debug
+[2019-11-1 22:47:07] ->  info
+[2019-11-1 22:47:07] ->  warning
+[2019-11-1 22:47:07] ->  error
+[2019-11-1 22:47:07] ->  emergency

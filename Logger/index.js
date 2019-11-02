@@ -45,6 +45,15 @@ const LEVELS = {
   TRACE: 5 // color windows 95
 };
 
+const LABELS = [
+  'EMERGENCY',
+  'ERROR',
+  'WARNING',
+  'INFO',
+  'DEBUG',
+  'TRACE'
+];
+
 const colorReset = '\x1b[0m';
 
 /** defines the Logger class */
@@ -60,7 +69,7 @@ class Logger {
      }
    */
   constructor(options = {}) {
-    const level = options.level || 'DEBUG';
+    const level = options.level || 'TRACE';
     this.level = LEVELS[level.toUpperCase()];
     this.stream = options.stream || process.stdout;
     // TODO: auto detect if terminal supports color
@@ -157,11 +166,13 @@ const log = (self, level, colorCode, args) => {
   if (level <= self.level) {
     const dateString = (new Date()).toLocaleString();
     const colorSet = '\x1b[' + colorCode + 'm';
-    const label = '[' + dateString + '] -> ';
+    const label = LABELS[level] + ' [' + dateString + ']';
     args.unshift(label);
+    args.unshift(process.pid);
 
     if (self.colorize) {
-      args.unshift(colorSet);
+      args[0]= '\x1b[' + 00 + 'm' + process.pid + colorReset
+      args[1] = colorSet + args[1];
       args.push(colorReset);
     }
 
@@ -185,20 +196,12 @@ module.exports = {
       return logger;
     }
 
-    const loggerOptions = options || {
-      level: process.env.LOG_LEVEL || 'DEBUG'
-    };
-
-    logger = new Logger(loggerOptions);
+    logger = new Logger(options);
     return logger;
   },
 
   createLogger: options => {
-    const loggerOptions = options || {
-      level: process.env.LOG_LEVEL || 'DEBUG'
-    };
-
-    return new Logger(loggerOptions);
+    return new Logger(options);
   },
 
   getLogger: () => {
