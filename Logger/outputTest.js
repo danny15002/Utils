@@ -7,14 +7,14 @@ try {
   console.log(e);
 }
 
-// const fs = require('fs');
-// const wstream = fs.createWriteStream(__dirname + '/output.txt', { flags: 'a' });
-//
-// logger = Logger.initLogger({
-//   stream: wstream
-// });
-//
-// logger = Logger.initLogger();
+const fs = require('fs');
+const wstream = fs.createWriteStream(__dirname + '/output.txt', { flags: 'a' });
+
+logger = Logger.initLogger({
+  // stream: wstream
+});
+
+
 logger.trace('trace');
 logger.debug('debug');
 logger.info('info');

@@ -47,11 +47,11 @@ const LEVELS = {
 
 const LABELS = [
   'EMERGENCY',
-  'ERROR',
-  'WARNING',
-  'INFO',
-  'DEBUG',
-  'TRACE'
+  'ERROR    ',
+  'WARNING  ',
+  'INFO     ',
+  'DEBUG    ',
+  'TRACE    '
 ];
 
 const colorReset = '\x1b[0m';
@@ -168,7 +168,7 @@ const log = (self, level, colorCode, args) => {
     const colorSet = '\x1b[' + colorCode + 'm';
     const label = LABELS[level] + ' [' + dateString + ']';
     args.unshift(label);
-    args.unshift(process.pid);
+    args.unshift(String(process.pid));
 
     if (self.colorize) {
       args[0]= '\x1b[' + 00 + 'm' + process.pid + colorReset
